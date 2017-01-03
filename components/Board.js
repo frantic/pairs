@@ -1,11 +1,11 @@
 import React from 'react'
 import {
-  StyleSheet,
   Text,
   View,
   VrButton,
 } from 'react-vr'
 import {connect} from 'react-redux'
+import styles from './styles'
 
 const renderSquare = (value, rowIndex, columnIndex, onSquareClick) => (
   <VrButton onClick={() => onSquareClick(rowIndex, columnIndex, value)} key={rowIndex + ':' + columnIndex}>
@@ -32,32 +32,6 @@ const renderBoard = ({ board, onSquareClick }) => (
     )}
   </View>
 )
-
-// TODO(jimp): better styling...
-const styles = StyleSheet.create({
-	board: {
-	  transform: [{translate: [-0.82, 0.82, -3]}],
-	},
-	row: {
-	  flex: 0,
-	  flexDirection: 'row',
-	},
-	square: {
-	  width: 0.45,
-	  height: 0.45,
-	  borderWidth: 0.01,
-	  borderColor: 'white',
-	  margin: 0.05,
-	  flex: 0,
-	  justifyContent: 'center',
-	  alignItems: 'center',
-	},
-	text: {
-	  fontSize: 0.4,
-	  marginTop: 0.05, // HACK(jimp): textAlignVertical, alignItems and justifyContent don't seem to work...
-	  textAlignVertical: 'center',
-	},
-});
 
 const mapStateToProps = (state) => (
   {
