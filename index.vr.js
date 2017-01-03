@@ -42,7 +42,7 @@ const score = (scores, client) => (
   }
 )
 
-const ws = new window.WebSocket('ws://172.16.164.217:4000')
+const ws = new window.WebSocket('ws://localhost:4000')
 
 // generate scores if master client
 const scoreMaster = store => next => action => {
@@ -106,7 +106,7 @@ class App extends React.Component {
   }
 }
 
-AppRegistry.registerComponent('PairsVR', () => App)
+AppRegistry.registerComponent('pairs', () => App)
 
 // HACK(jimp): delay to avoid mysterious crashes sending action at startup...
 // TODO(jimp): avoid delay...
