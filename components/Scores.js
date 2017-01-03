@@ -8,7 +8,7 @@ import {
 import {connect} from 'react-redux'
 
 const renderScore = (id, score, local) => (
-  <View style={styles.square}>
+  <View style={styles.square} key={id}>
     <Text style={local?styles.text:styles.grayText}>
       {'P' + id + ':' + score}
     </Text>

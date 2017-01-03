@@ -8,7 +8,7 @@ import {
 import {connect} from 'react-redux'
 
 const renderSquare = (value, rowIndex, columnIndex, onSquareClick) => (
-  <VrButton onClick={() => onSquareClick(rowIndex, columnIndex, value)}>
+  <VrButton onClick={() => onSquareClick(rowIndex, columnIndex, value)} key={rowIndex + ':' + columnIndex}>
     <View style={styles.square}>
       <Text style={styles.text}>
         {value > 0? value:''}
@@ -18,7 +18,7 @@ const renderSquare = (value, rowIndex, columnIndex, onSquareClick) => (
 )
 
 const renderRow = (row, rowIndex, board, onSquareClick) => (
-  <View style={styles.row}>
+  <View style={styles.row} key={row}>
     {row.map((column, columnIndex) => renderSquare(
         board[rowIndex][columnIndex], rowIndex, columnIndex, onSquareClick)
     )}
