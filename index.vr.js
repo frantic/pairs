@@ -93,6 +93,11 @@ ws.onmessage = (evt) => {
   }
 }
 
+// send initial join action when websocket is ready
+ws.onopen = (evt) => {
+  store.dispatch(join(client))
+}
+
 class App extends React.Component {
   render() {
     return (
@@ -107,7 +112,3 @@ class App extends React.Component {
 }
 
 AppRegistry.registerComponent('pairs', () => App)
-
-// HACK(jimp): delay to avoid mysterious crashes sending action at startup...
-// TODO(jimp): avoid delay...
-setTimeout(() => {store.dispatch(join(client))}, 100)
